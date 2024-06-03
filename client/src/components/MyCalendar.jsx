@@ -16,14 +16,14 @@ export default function MyCalendar() {
     const [weekendsVisible, setWeekendsVisible] = useState(true)
     const [currentEvents, setCurrentEvents] = useState([{}])
 
-    const fetchUsers = async () => {
+    const fetchEvents = async () => {
         const { data } = await axios.get('/events');
         return data;
     };
     
     const { data, error, isLoading } = useQuery({
         queryKey: ['users'],
-        queryFn: fetchUsers,
+        queryFn: fetchEvents,
     });
     
     const mutation = useMutation({
